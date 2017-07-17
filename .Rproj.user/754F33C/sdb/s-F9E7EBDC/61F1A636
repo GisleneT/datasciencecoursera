@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "## Caching the Inverse of a Matrix\n## Matrix inversion is usually a costly computation and there may be some\n## benefit to caching the inverse of a matrix rather than compute it repeatedly.\n\n## This function creates a special \"vector\"\n\nmakeCacheMatrix <- function(x = matrix()) {\n  inv <- NULL \n  set <- function(y) {\n    x<<- y\n    inv <<- NULL\n  }\n  get <- funcation() x\n  setInverse <- function(inverse) inv <<- inverse\n  getInverse <- function() inv\n  list(set = set,\n       get = get,\n       setInverse = setInverse,\n       getInverse = getInverse)\n}\n\n## This function computes the inverse of the special \"matrix\" returned by\n## makeCacheMatric aboce. If the inverse has already been calculated, then\n## the cachesolve should retrieve the inverse from the cache.\n\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n        inv <- x$getInverse()\n        if (!is.null(inv)) {\n                message(\"getting cached data\")\n                return (inv)\n        }\n        mat <- x$get()\n        inv <- solve(mat, ...)\n        x$setInverse(inv)\n        inv\n}\n",
+    "created" : 1500258140127.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "44825493",
+    "id" : "61F1A636",
+    "lastKnownWriteTime" : 1500258575,
+    "last_content_update" : 1500258575555,
+    "path" : "~/Documents/DataScience/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "ProgrammingAssignment2/cachematrix.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
